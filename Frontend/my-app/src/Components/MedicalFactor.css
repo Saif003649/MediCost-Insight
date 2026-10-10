@@ -1,0 +1,250 @@
+/* MedicalFactor.css — Bio-Lumina Theme */
+
+/* Container */
+.medical-form-container {
+  max-width: 540px;
+  width: 100%;
+  padding: 32px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(0, 194, 255, 0.05);
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: floatCardMedical 7s ease-in-out infinite reverse;
+  position: relative;
+  z-index: 4;
+}
+
+@keyframes floatCardMedical {
+  0% { transform: translateY(0px) translateZ(-10px); }
+  50% { transform: translateY(-8px) translateZ(-10px); }
+  100% { transform: translateY(0px) translateZ(-10px); }
+}
+
+/* Visual accent for theme */
+.medical-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.medical-form-container h2 {
+  text-align: left;
+  font-size: 24px;
+  margin-bottom: 24px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px var(--neon-green);
+  letter-spacing: 0.5px;
+}
+
+/* Disabled overlay state */
+.disabled-box {
+  opacity: 0.4;
+  pointer-events: none;
+  filter: grayscale(80%) blur(2px);
+}
+
+/* Disabled message */
+.disabled-msg {
+  color: var(--neon-cyan);
+  margin-bottom: 14px;
+  font-size: 15px;
+  text-shadow: 0 0 5px var(--neon-cyan);
+  background: rgba(0, 194, 255, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 194, 255, 0.2);
+}
+
+/* Error text */
+.error-text {
+  margin-bottom: 10px;
+  color: #ff4d4d;
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 0 5px #ff4d4d;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs and selects */
+.form-input,
+.form-select {
+  padding: 12px 14px;
+  font-size: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 255, 163, 0.3);
+  border-radius: 8px;
+  outline: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Focus */
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--neon-green);
+  background: rgba(0, 255, 163, 0.05);
+  box-shadow: 0 0 12px rgba(0, 255, 163, 0.3), inset 0 0 8px rgba(0, 255, 163, 0.2);
+}
+
+.form-select option {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 36px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><polygon points='0,0 16,0 8,8' fill='%2300FFA3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px 12px;
+}
+
+/* Small inputs (for rows) */
+.small-input {
+  width: 130px;
+  margin-right: 12px;
+}
+
+/* Row layouts */
+.bmi-row,
+.bp-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.bp-row .small-input {
+  width: 130px;
+}
+
+/* Buttons */
+.calc-btn {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--neon-cyan);
+  background: transparent;
+  color: var(--neon-cyan);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.calc-btn:hover:not(:disabled) {
+  background: rgba(0, 194, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 194, 255, 0.5), inset 0 0 10px rgba(0, 194, 255, 0.2);
+  transform: translateY(-2px);
+  color: #fff;
+  text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.calc-btn:disabled {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+/* Animated BMI Result */
+.bmi-result-glow {
+  animation: bmiGlow 1.5s ease;
+}
+
+@keyframes bmiGlow {
+  0% { box-shadow: 0 0 0 rgba(0, 255, 163, 0); border-color: rgba(0, 255, 163, 0.3); }
+  50% { box-shadow: 0 0 20px var(--neon-green); border-color: var(--neon-green); background: rgba(0, 255, 163, 0.2); }
+  100% { box-shadow: 0 0 0 rgba(0, 255, 163, 0); border-color: rgba(0, 255, 163, 0.3); }
+}
+
+/* Primary variant (Submit) */
+.calc-btn.primary {
+  background: rgba(0, 194, 255, 0.1);
+  color: var(--neon-cyan);
+  width: 100%;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calc-btn.primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 194, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.calc-btn.primary:hover:not(:disabled)::before {
+  width: 400px;
+  height: 400px;
+}
+
+.calc-btn.primary:hover:not(:disabled) {
+  color: #000;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 25px var(--neon-cyan);
+}
+
+/* Responsive */
+@media (max-width: 540px) {
+  .medical-form-container {
+    margin: 20px;
+    padding: 24px;
+  }
+
+  .small-input {
+    width: 100px;
+  }
+
+  .bmi-row,
+  .bp-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Accessibility: highlight invalid fields */
+[aria-invalid="true"] {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.4);
+}

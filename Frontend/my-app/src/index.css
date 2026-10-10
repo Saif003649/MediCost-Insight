@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #021B1A;
+  --neon-green: #00FFA3;
+  --neon-cyan: #00C2FF;
+  --glass-bg: rgba(2, 27, 26, 0.4);
+  --glass-border: rgba(0, 255, 163, 0.2);
+  --glass-glow: rgba(0, 255, 163, 0.1);
+  --text-primary: #e0f2f1;
+  --text-secondary: #80cbc4;
+  --font-main: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Base Canvas for Animations and Layers */
+.app-canvas {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  position: relative;
+  z-index: 10;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout stack for the forms so they appear floating and nicely spaced */
+.layout-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- Background Grid --- */
+.bg-grid {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    linear-gradient(var(--glass-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(600px) rotateX(60deg);
+  animation: gridMove 20s linear infinite;
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes gridMove {
+  0% { transform: perspective(600px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(600px) rotateX(60deg) translateY(50px); }
+}
+
+/* --- DNA Helix Background (CSS visual trick) --- */
+.dna-helix {
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 400px;
+  height: 1000px;
+  background: 
+    radial-gradient(circle at 30% 50%, var(--neon-cyan) 0%, transparent 5%),
+    radial-gradient(circle at 70% 50%, var(--neon-green) 0%, transparent 5%);
+  background-size: 100px 100px;
+  opacity: 0.1;
+  transform: rotate(15deg);
+  animation: dnaFloat 15s ease-in-out infinite alternate;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(8px);
+}
+
+@keyframes dnaFloat {
+  0% { transform: rotate(15deg) translateY(0) scale(1); }
+  100% { transform: rotate(20deg) translateY(-50px) scale(1.05); }
+}
+
+/* --- Particles --- */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--neon-green);
+  opacity: 0.3;
+  box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-cyan);
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* Generate random particles */
+.p-0 { width: 3px; height: 3px; left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.p-1 { width: 5px; height: 5px; left: 25%; animation-duration: 18s; animation-delay: 2s; }
+.p-2 { width: 2px; height: 2px; left: 40%; animation-duration: 14s; animation-delay: 4s; }
+.p-3 { width: 4px; height: 4px; left: 65%; animation-duration: 20s; animation-delay: 1s; }
+.p-4 { width: 6px; height: 6px; left: 80%; animation-duration: 15s; animation-delay: 5s; }
+.p-5 { width: 3px; height: 3px; left: 90%; animation-duration: 19s; animation-delay: 3s; }
+.p-6 { width: 4px; height: 4px; left: 15%; animation-duration: 16s; animation-delay: 6s; }
+.p-7 { width: 5px; height: 5px; left: 45%; animation-duration: 22s; animation-delay: 0.5s; }
+.p-8 { width: 2px; height: 2px; left: 55%; animation-duration: 13s; animation-delay: 7s; }
+.p-9 { width: 4px; height: 4px; left: 75%; animation-duration: 17s; animation-delay: 2.5s; }
+.p-10 { width: 4px; height: 4px; left: 5%; animation-duration: 25s; animation-delay: 1.5s; }
+.p-11 { width: 3px; height: 3px; left: 35%; animation-duration: 11s; animation-delay: 8s; }
+.p-12 { width: 6px; height: 6px; left: 50%; animation-duration: 23s; animation-delay: 3.5s; }
+.p-13 { width: 2px; height: 2px; left: 70%; animation-duration: 16s; animation-delay: 4.5s; }
+.p-14 { width: 5px; height: 5px; left: 85%; animation-duration: 21s; animation-delay: 6.5s; }
+.p-15 { width: 3px; height: 3px; left: 95%; animation-duration: 14s; animation-delay: 2.8s; }
+.p-16 { width: 4px; height: 4px; left: 20%; animation-duration: 19s; animation-delay: 5.5s; }
+.p-17 { width: 5px; height: 5px; left: 60%; animation-duration: 24s; animation-delay: 1.8s; }
+.p-18 { width: 2px; height: 2px; left: 30%; animation-duration: 12s; animation-delay: 9s; }
+.p-19 { width: 4px; height: 4px; left: 100%; animation-duration: 17s; animation-delay: 0.8s; }

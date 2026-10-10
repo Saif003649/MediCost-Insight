@@ -1,0 +1,81 @@
+.navbar {
+  height: 80px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glass-glow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.brand span {
+  color: var(--neon-green);
+  text-shadow: 0 0 8px var(--neon-green);
+}
+
+.nav-center a {
+  margin: 0 20px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-center a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 50%;
+  background-color: var(--neon-green);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-green);
+}
+
+.nav-center a:hover {
+  color: var(--neon-green);
+  text-shadow: 0 0 5px var(--neon-green);
+}
+
+.nav-center a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.cta-btn {
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.2);
+}
+
+.cta-btn:hover {
+  background: rgba(0, 194, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 194, 255, 0.5), inset 0 0 10px rgba(0, 194, 255, 0.2);
+  text-shadow: 0 0 5px var(--neon-cyan);
+}

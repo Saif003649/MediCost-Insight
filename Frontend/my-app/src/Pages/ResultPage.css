@@ -1,0 +1,158 @@
+/* ResultPage.css — Bio-Lumina Theme */
+
+.report-container {
+  max-width: 760px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.report-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #fff;
+  text-shadow: 0 0 15px var(--neon-cyan), 0 0 30px rgba(0, 194, 255, 0.3);
+  letter-spacing: 1px;
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% { text-shadow: 0 0 15px var(--neon-cyan), 0 0 30px rgba(0, 194, 255, 0.3); }
+  50% { text-shadow: 0 0 25px var(--neon-green), 0 0 50px rgba(0, 255, 163, 0.4); }
+}
+
+.report-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 32px 36px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(0, 255, 163, 0.04);
+  position: relative;
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.report-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+  box-shadow: 0 0 10px var(--neon-green);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 255, 163, 0.1);
+  transition: background 0.2s ease;
+}
+
+.row:hover {
+  background: rgba(0, 255, 163, 0.03);
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 6px;
+}
+
+.row span {
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.row strong {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.premium-box {
+  margin-top: 30px;
+  padding: 28px 20px;
+  background: linear-gradient(135deg, rgba(0, 255, 163, 0.1), rgba(0, 194, 255, 0.1));
+  border-radius: 14px;
+  border: 1px solid var(--neon-green);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 255, 163, 0.2), inset 0 0 20px rgba(0, 255, 163, 0.05);
+  animation: premiumGlow 2s ease-in-out infinite;
+}
+
+@keyframes premiumGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 163, 0.2), inset 0 0 15px rgba(0, 255, 163, 0.05); }
+  50% { box-shadow: 0 0 40px rgba(0, 255, 163, 0.4), inset 0 0 25px rgba(0, 255, 163, 0.1); }
+}
+
+.premium-box span {
+  font-size: 14px;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.premium-box h2 {
+  margin-top: 10px;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--neon-green);
+  text-shadow: 0 0 15px var(--neon-green), 0 0 30px rgba(0, 255, 163, 0.5);
+  letter-spacing: 2px;
+}
+
+.back-btn {
+  margin-top: 24px;
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.2);
+}
+
+.back-btn:hover {
+  background: var(--neon-cyan);
+  color: #000;
+  box-shadow: 0 0 25px var(--neon-cyan);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .report-container {
+    margin: 30px 16px;
+    padding: 16px;
+  }
+
+  .report-card {
+    padding: 24px 20px;
+  }
+
+  .premium-box h2 {
+    font-size: 32px;
+  }
+
+  .report-title {
+    font-size: 24px;
+  }
+}
